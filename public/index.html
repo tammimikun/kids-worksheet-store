@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '75425423543524352'); // 👉 ganti dengan ID Pixel kamu
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=75425423543524352&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids Worksheet Store</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background:
+        radial-gradient(circle, rgba(255,182,193,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(173,216,230,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(144,238,144,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,153,0.4) 3px, transparent 3px),
+        #ffe5b4;
+      background-size: 80px 80px, 100px 100px, 120px 120px, 90px 90px, auto;
+      background-position: 0 0, 40px 40px, 20px 60px, 60px 20px, 0 0;
+      background-attachment: fixed;
+    }
+
+    header {
+      background:
+        radial-gradient(circle, rgba(255,182,193,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(173,216,230,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(144,238,144,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,153,0.4) 3px, transparent 3px),
+        #ffe5b4;
+      background-size: 80px 80px, 100px 100px, 120px 120px, 90px 90px, auto;
+      background-position: 0 0, 40px 40px, 20px 60px, 60px 20px, 0 0;
+      background-attachment: fixed;
+    }
+/* Paksa kotak harga netral */
+  #harga .card { 
+    background:#fff !important; 
+    border:1px solid #e0e0e0;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  }
+
+    .mod-thumbs {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      flex-wrap: nowrap;
+      margin-bottom: .75rem;
+    }
+    .mod-thumbs img {
+      height: 110px;
+      width: auto;
+      object-fit: cover;
+      border-radius: .5rem;
+      border: 1px solid rgba(0,0,0,.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      background: #fff;
+    }
+
+    /* ==== Slideshow per modul ==== */
+    .mod-slideshow {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      max-height: 90vh;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mod-slideshow .slides {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      transition: transform 1s ease-in-out;
+    }
+    .mod-slideshow img {
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      flex: 0 0 100%;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .mod-slideshow { aspect-ratio: auto; height: auto; }
+      .mod-slideshow img { width: 100%; height: auto; }
+    }
+
+    h5.card-title { margin-top: 0.75rem; }
+/* === Warna berbeda untuk tiap modul === */
+.card:nth-child(1) { background: linear-gradient(135deg, #ffb6b9, #fae3d9); }
+.card:nth-child(2) { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+.card:nth-child(3) { background: linear-gradient(135deg, #c2e9fb, #a1c4fd); }
+.card:nth-child(4) { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+.card:nth-child(5) { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+.card:nth-child(6) { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+.card:nth-child(7) { background: linear-gradient(135deg, #a1ffce, #faffd1); }
+.card:nth-child(8) { background: linear-gradient(135deg, #fddb92, #d1fdff); }
+.card:nth-child(9) { background: linear-gradient(135deg, #f6d365, #fda085); }
+.card:nth-child(10) { background: linear-gradient(135deg, #e0c3fc, #8ec5fc); }
+.card:nth-child(11) { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+.card:nth-child(12) { background: linear-gradient(135deg, #fccb90, #d57eeb); }
+
+/* Tambahkan agar teks tetap terbaca */
+.card h5, .card p { color: #000; }
+
+    /* === Boundary Box Universal === */
+    .boundary-box {
+      background: linear-gradient(135deg, #001f3f, #ffd700); /* navy ke kuning */
+      color: white;
+      padding: 30px 35px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      margin: 40px auto;
+      max-width: 850px;
+    }
+    .boundary-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .boundary-box li {
+      border-bottom: 2px solid rgba(255,255,255,0.4);
+      padding: 12px 0;
+      font-size: 1.05rem;
+    }
+    .boundary-box li:last-child { border-bottom: none; }
+
+/* === Hero Section Custom Background === */
+.hero-title {
+  background-color: #d62828; /* merah cerah */
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.hero-text {
+  background-color: #ffdd57; /* kuning lembut */
+  color: #000;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* === Section dengan Background Putih === */
+section.bg-white-section {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  padding: 60px 0;
+}
+
+/* === Section Harga: background navy === */
+#harga {
+  background-color: #001f3f; /* navy gelap elegan */
+  color: #ffffff;
+  padding: 60px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#harga h2 {
+  color: #ffffff !important;
+}
+
+#harga .card {
+  background-color: #ffffff !important;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* === Section Urgency (Mengapa Harus Membeli Sekarang) === */
+#urgency {
+  background: linear-gradient(135deg, #20c997, #40e0d0);
+  color: #ffffff;
+  padding: 60px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+#urgency h2 {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+#urgency p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* === Gradasi khusus untuk section Kenapa Worksheet Ini Penting === */
+#kenapa .boundary-box {
+  background: linear-gradient(135deg, #40e0d0, #a0522d); /* tosca ke sienna */
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* === Gradasi khusus untuk section TAHUKAH ANDA === */
+#tahukah .boundary-box {
+  background: linear-gradient(135deg, #008080, #ff00ff); /* teal ke magenta */
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* === Gradasi khusus untuk section WORKSHEET INOVATIF === */
+#inovatif .boundary-box {
+  background: linear-gradient(135deg, #6a0dad, #008080); /* ungu ke teal */
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* === Background Gradasi untuk Section TESTIMONI === */
+#testimoni-section {
+  background: linear-gradient(135deg, #FFD700, #FF4500); /* kuning ke merah */
+  color: white;
+  padding: 80px 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<header class="text-dark text-center py-5">
+  <div class="container">
+    <h1 class="hero-title">Anak-anak masih suka main HP setiap hari? Ganti ini aja!</h1>
+    <div class="hero-text mt-4">
+      <p class="lead">Awas! Kebanyakan main HP bisa bikin perkembangan otak anak terhambat. 
+      Ajak anak Anda mengerjakan <strong>worksheet khusus</strong> untuknya agar lebih fokus, kreatif, dan berkembang optimal!</p>
+      <p class="lead">Kalo kamu print 10 kertas ini setiap hari, kamu bakal butuh waktu 50 hari buat ngabisinnya. 
+      Ini sih bisa bikin anak-anak lupa HP.</p>
+      <p class="lead">Anak-anak suka tantrum gara-gara main HP? Solusinya ada di worksheet seru ini!</p>
+    </div>
+  </div>
+</header>
+
+
+<!-- Apa Itu Worksheet -->
+<section class="py-5 bg-white-section">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Apa Itu Worksheet Anak Kreatif?</h2>
+    <div class="boundary-box text-center mx-auto">
+      <p class="mb-3">
+        Worksheet Anak Kreatif adalah kumpulan <strong>lembar aktivitas edukatif</strong> 
+        untuk anak usia 2–8 tahun.
+      </p>
+      <p class="mb-3">
+        Berisi lebih dari <strong>1.200 halaman aktivitas seru</strong> 
+        yang bisa diprint di rumah dan membantu anak belajar sambil bermain.
+      </p>
+      <p class="mb-0">
+        Materi mencakup <strong>alfabet, berhitung, benda, hewan, buah, profesi, kendaraan, 
+        hingga dinosaurus</strong> — lengkap untuk mengembangkan kreativitas dan fokus anak.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Tahukah Anda -->
+<section class="py-5" id="tahukah">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3">TAHUKAH ANDA</h2>
+    <p class="mb-4">Penggunaan ponsel berlebihan dapat berdampak negatif bagi anak-anak, seperti:</p>
+    <div class="boundary-box text-start">
+      <ul>
+        <li>Kesehatan Mental: Depresi, cemas, sulit fokus, dan gangguan perilaku.</li>
+        <li>Prestasi Akademik: Nilai menurun dan menurunnya motivasi belajar.</li>
+        <li>Tidur: Kualitas tidur terganggu dan sulit tidur lebih awal.</li>
+        <li>Sosial: Menurunnya kemampuan sosial dan empati anak.</li>
+        <li>Perilaku: Kecanduan, mudah marah, dan meniru perilaku negatif.</li>
+        <li>Kesehatan Fisik: Mata lelah, sakit kepala, nyeri leher & punggung, serta obesitas.</li>
+      </ul>
+    </div>
+    <p class="mt-5">Kami membantu orang tua mendampingi anak-anak mereka dengan worksheet edukatif yang dirancang secara profesional mencakup setiap topik penting.</p>
+    <p class="fw-semibold">Kami percaya pada konsep <strong>Belajar, Bermain, dan Berkembang</strong> — Membuka Potensi Terbaik Anak Anda!</p>
+  </div>
+</section>
+
+
+<!-- Kenapa Worksheet Penting -->
+<section class="py-5 text-center bg-white-section" id="kenapa">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Kenapa Worksheet Ini Penting?</h2>
+    <div class="boundary-box text-start">
+      <ul>
+        <li>Mengurangi ketergantungan anak pada gadget.</li>
+        <li>Menstimulasi kreativitas, imajinasi, dan motorik halus.</li>
+        <li>Meningkatkan fokus, konsentrasi, dan rasa percaya diri.</li>
+        <li>Aktivitas bonding yang seru antara orang tua dan anak.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Dipakai Banyak Orang -->
+<section class="py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Dipakai Banyak Orang Tua</h2>
+    <div class="boundary-box text-start">
+      <ul>
+        <li>Worksheet ini sudah dipercaya banyak keluarga di Indonesia.</li>
+        <li>Cocok untuk aktivitas homeschooling.</li>
+        <li>Ideal untuk guru TK/PAUD.</li>
+        <li>Sangat membantu orang tua yang ingin memberi alternatif edukatif selain gadget.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Worksheet Inovatif -->
+<section class="py-5 text-center bg-white-section" id="inovatif">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Worksheet Inovatif</h2>
+    <div class="boundary-box text-start">
+      <p>Kami menyusun worksheet dengan kombinasi <strong>metode belajar klasik & modern</strong>, 
+      bahkan memanfaatkan teknologi untuk menghadirkan variasi soal dan aktivitas. 
+      Dengan begitu, anak tidak cepat bosan dan bisa belajar dengan cara yang menyenangkan.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section: Inilah yang Akan Anda Berikan untuk Anak Anda -->
+<section id="benefits-section" style="background-color:#0a2b5c; color:#fff; padding:60px 20px; text-align:center;">
+  <div class="container">
+    <!-- Judul -->
+    <h2 style="font-size:2rem; font-weight:800; text-transform:uppercase; margin-bottom:40px;">
+      INILAH YANG AKAN ANDA BERIKAN UNTUK ANAK ANDA
+    </h2>
+
+    <!-- Dua Baris Kartu -->
+    <div class="benefits-grid">
+      <!-- Kartu 1 -->
+      <div class="benefit-card fade-up">
+        <i class="fas fa-laptop-code icon"></i>
+        <h4>Ubah Waktu Layar Menjadi Waktu Belajar:</h4>
+        <p>Ucapkan selamat tinggal pada hiburan pasif; lembar aktivitas kami mengubah waktu layar menjadi pengalaman belajar yang bermakna untuk anak Anda.</p>
+      </div>
+
+      <!-- Kartu 2 -->
+      <div class="benefit-card fade-up">
+        <i class="fas fa-school icon"></i>
+        <h4>Persiapan Menuju Kesuksesan di Sekolah:</h4>
+        <p>Pastikan anak Anda siap menghadapi dunia pendidikan dengan pemahaman kuat terhadap konsep dasar dan sikap positif terhadap belajar.</p>
+      </div>
+
+      <!-- Kartu 3 -->
+      <div class="benefit-card fade-up">
+        <i class="fas fa-book-reader icon"></i>
+        <h4>Kuasai Keterampilan Dasar untuk Masa Depan:</h4>
+        <p>Bekali anak Anda dengan kemampuan dasar seperti pengenalan huruf, angka, bentuk, dan warna sebagai fondasi pendidikan jangka panjang.</p>
+      </div>
+
+      <!-- Kartu 4 -->
+      <div class="benefit-card fade-up">
+        <i class="fas fa-child icon"></i>
+        <h4>Belajar Mandiri dan Kreatif:</h4>
+        <p>Worksheet kami mendorong anak untuk belajar secara mandiri, melatih berpikir kritis, memecahkan masalah, dan mengambil keputusan dengan percaya diri.</p>
+      </div>
+    </div>
+   </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+/* ===== GRID 2 KOLOM 2 BARIS ===== */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px 40px;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ===== KARTU ===== */
+.benefit-card {
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;                /* Awal disembunyikan */
+  transform: translateY(40px); /* Awal posisi lebih bawah */
+}
+
+.benefit-card.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+.benefit-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.icon {
+  font-size: 1.8rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.benefit-card h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.benefit-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===== TOMBOL CTA ===== */
+.cta-btn {
+  background-color: #fdd835;
+  color: #000;
+  font-weight: 800;
+  display: inline-block;
+  padding: 18px 40px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 1rem;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #ffea00;
+  transform: scale(1.05);
+}
+
+/* ===== RESPONSIF ===== */
+@media (max-width: 768px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- JavaScript Fade-Up Animation -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
+});
+</script>
+
+<!-- Section: Keuntungan & Isi Produk -->
+<section class="py-5" style="background:#f8fafc;">
+  <div class="container text-center">
+
+    <!-- Judul -->
+    <h2 class="fw-bold mb-4 text-uppercase benefit-title">
+      ✨ Buka Masa Depan Cerdas Anak Anda Hari Ini! ✨
+    </h2>
+
+    <!-- Kotak isi -->
+    <div class="benefit-box mx-auto">
+      <ul class="list-unstyled mb-0">
+        <li>12+ Modul Worksheet Edukatif untuk Anak Usia 2–8 Tahun</li>
+        <li>1.200+ Halaman Lembar Aktivitas Siap Cetak (PDF)</li>
+        <li>Seri Alfabet, Berhitung, Hewan, Buah, Profesi, Kendaraan, dan Banyak Lagi</li>
+        <li>Dirancang oleh Tim Edukator & Desainer Anak Profesional</li>
+        <li>Worksheet Siap Cetak Tanpa Perlu Instalasi atau Aplikasi Tambahan</li>
+        <li>Dapat Dicetak Kapan Saja </li>
+        <li>Dukungan Customer Service via Email & WhatsApp</li>
+        </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.benefit-title {
+  text-align: center;
+  color: #222;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.benefit-box {
+  max-width: 850px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #003366, #004c99, #0066cc);
+  color: #fff;
+  border-radius: 15px;
+  padding: 35px 50px;
+  border: 4px solid #ffcc00;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+  text-align: left;
+}
+
+.benefit-box ul {
+  margin: 0;
+  padding: 0;
+}
+
+.benefit-box ul li {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 12px 0;
+  padding-left: 40px;
+  border-bottom: 2px solid rgba(255,255,255,0.35);
+  position: relative;
+  list-style: none;
+}
+
+.benefit-box ul li::before {
+  content: "✅";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: #00ff90;
+}
+
+.benefit-box ul li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width:768px) {
+  .benefit-title {
+    font-size: 1.4rem;
+  }
+  .benefit-box {
+    padding: 25px 20px;
+  }
+  .benefit-box ul li {
+    font-size: 1rem;
+    padding-left: 35px;
+  }
+  .benefit-box ul li::before {
+    left: 5px;
+  }
+}
+</style>
+
+
+<!-- 🎨 Daftar Modul (dengan 3 foto/jpg per modul dan warna berbeda) -->
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-4">Daftar Modul Worksheet</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+      <!-- Modul 1 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#ffb6b9,#fae3d9);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul1-1.jpg" alt="Modul 1 Preview 1">
+            <img src="/Content/Modul1-2.jpg" alt="Modul 1 Preview 2">
+            <img src="/Content/Modul1-3.jpg" alt="Modul 1 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 1: Alfabet</h5><p>150 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 2 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul2-1.jpg" alt="Modul 2 Preview 1">
+            <img src="/Content/Modul2-2.jpg" alt="Modul 2 Preview 2">
+            <img src="/Content/Modul2-3.jpg" alt="Modul 2 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 2: Berhitung</h5><p>150 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 3 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#c2e9fb,#a1c4fd);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul3-1.jpg" alt="Modul 3 Preview 1">
+            <img src="/Content/Modul3-2.jpg" alt="Modul 3 Preview 2">
+            <img src="/Content/Modul3-3.jpg" alt="Modul 3 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 3: Benda</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 4 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#d4fc79,#96e6a1);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul4-1.jpg" alt="Modul 4 Preview 1">
+            <img src="/Content/Modul4-2.jpg" alt="Modul 4 Preview 2">
+            <img src="/Content/Modul4-3.jpg" alt="Modul 4 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 4: Hewan</h5><p>125 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 5 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#ffecd2,#fcb69f);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul5-1.jpg" alt="Modul 5 Preview 1">
+            <img src="/Content/Modul5-2.jpg" alt="Modul 5 Preview 2">
+            <img src="/Content/Modul5-3.jpg" alt="Modul 5 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 5: Buah</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 6 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fddb92,#d1fdff);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul6-1.jpg" alt="Modul 6 Preview 1">
+            <img src="/Content/Modul6-2.jpg" alt="Modul 6 Preview 2">
+            <img src="/Content/Modul6-3.jpg" alt="Modul 6 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 6: Sayur</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 7 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#e0c3fc,#8ec5fc);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul7-1.jpg" alt="Modul 7 Preview 1">
+            <img src="/Content/Modul7-2.jpg" alt="Modul 7 Preview 2">
+            <img src="/Content/Modul7-3.jpg" alt="Modul 7 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 7: Profesi</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 8 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#a1ffce,#faffd1);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul8-1.jpg" alt="Modul 8 Preview 1">
+            <img src="/Content/Modul8-2.jpg" alt="Modul 8 Preview 2">
+            <img src="/Content/Modul8-3.jpg" alt="Modul 8 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 8: Kendaraan</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 9 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#f6d365,#fda085);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul9-1.jpg" alt="Modul 9 Preview 1">
+            <img src="/Content/Modul9-2.jpg" alt="Modul 9 Preview 2">
+            <img src="/Content/Modul9-3.jpg" alt="Modul 9 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 9: Tempat</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 10 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul10-1.jpg" alt="Modul 10 Preview 1">
+            <img src="/Content/Modul10-2.jpg" alt="Modul 10 Preview 2">
+            <img src="/Content/Modul10-3.jpg" alt="Modul 10 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 10: Waktu</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 11 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#84fab0,#8fd3f4);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul11-1.jpg" alt="Modul 11 Preview 1">
+            <img src="/Content/Modul11-2.jpg" alt="Modul 11 Preview 2">
+            <img src="/Content/Modul11-3.jpg" alt="Modul 11 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 11: Tubuh</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 12 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fccb90,#d57eeb);">
+          <div class="mod-thumbs">
+            <img src="/Content/Modul12-1.jpg" alt="Modul 12 Preview 1">
+            <img src="/Content/Modul12-2.jpg" alt="Modul 12 Preview 2">
+            <img src="/Content/Modul12-3.jpg" alt="Modul 12 Preview 3">
+          </div>
+          <h5 class="card-title">Modul 12: Dinosaurus</h5><p>100 halaman</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 🎨 Warna gradasi unik untuk setiap modul */
+  .modul-1  { background: linear-gradient(135deg, #ffb6b9, #fae3d9); }
+  .modul-2  { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+  .modul-3  { background: linear-gradient(135deg, #c2e9fb, #a1c4fd); }
+  .modul-4  { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+  .modul-5  { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+  .modul-6  { background: linear-gradient(135deg, #fddb92, #d1fdff); }
+  .modul-7  { background: linear-gradient(135deg, #e0c3fc, #8ec5fc); }
+  .modul-8  { background: linear-gradient(135deg, #a1ffce, #faffd1); }
+  .modul-9  { background: linear-gradient(135deg, #f6d365, #fda085); }
+  .modul-10 { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+  .modul-11 { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+  .modul-12 { background: linear-gradient(135deg, #fccb90, #d57eeb); }
+
+  /* 🪄 Tambahan efek hover elegan */
+  .card {
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+
+  .card h5, .card p {
+    color: #000;
+  }
+</style>
+
+
+
+<!-- 🎨 Preview Worksheet (1–12) -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Preview Worksheet (1–12)</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-4">
+
+      <!-- Modul 1 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#ffb6b9,#fae3d9);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul1-1.jpg" alt="Modul 1 Preview 1">
+              <img src="/Content/Modul1-2.jpg" alt="Modul 1 Preview 2">
+              <img src="/Content/Modul1-3.jpg" alt="Modul 1 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 1: Seri Alfabet</h5>
+          <p>150 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 2 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul2-1.jpg" alt="Modul 2 Preview 1">
+              <img src="/Content/Modul2-2.jpg" alt="Modul 2 Preview 2">
+              <img src="/Content/Modul2-3.jpg" alt="Modul 2 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 2: Seri Berhitung</h5>
+          <p>150 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 3 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#c2e9fb,#a1c4fd);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul3-1.jpg" alt="Modul 3 Preview 1">
+              <img src="/Content/Modul3-2.jpg" alt="Modul 3 Preview 2">
+              <img src="/Content/Modul3-3.jpg" alt="Modul 3 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 3: Seri Benda</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 4 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#d4fc79,#96e6a1);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul4-1.jpg" alt="Modul 4 Preview 1">
+              <img src="/Content/Modul4-2.jpg" alt="Modul 4 Preview 2">
+              <img src="/Content/Modul4-3.jpg" alt="Modul 4 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 4: Seri Hewan</h5>
+          <p>125 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 5 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#ffecd2,#fcb69f);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul5-1.jpg" alt="Modul 5 Preview 1">
+              <img src="/Content/Modul5-2.jpg" alt="Modul 5 Preview 2">
+              <img src="/Content/Modul5-3.jpg" alt="Modul 5 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 5: Seri Buah</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 6 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fddb92,#d1fdff);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul6-1.jpg" alt="Modul 6 Preview 1">
+              <img src="/Content/Modul6-2.jpg" alt="Modul 6 Preview 2">
+              <img src="/Content/Modul6-3.jpg" alt="Modul 6 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 6: Seri Sayur</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 7 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#e0c3fc,#8ec5fc);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul7-1.jpg" alt="Modul 7 Preview 1">
+              <img src="/Content/Modul7-2.jpg" alt="Modul 7 Preview 2">
+              <img src="/Content/Modul7-3.jpg" alt="Modul 7 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 7: Seri Profesi</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 8 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#a1ffce,#faffd1);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul8-1.jpg" alt="Modul 8 Preview 1">
+              <img src="/Content/Modul8-2.jpg" alt="Modul 8 Preview 2">
+              <img src="/Content/Modul8-3.jpg" alt="Modul 8 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 8: Seri Kendaraan</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 9 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#f6d365,#fda085);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul9-1.jpg" alt="Modul 9 Preview 1">
+              <img src="/Content/Modul9-2.jpg" alt="Modul 9 Preview 2">
+              <img src="/Content/Modul9-3.jpg" alt="Modul 9 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 9: Seri Tempat</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 10 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul10-1.jpg" alt="Modul 10 Preview 1">
+              <img src="/Content/Modul10-2.jpg" alt="Modul 10 Preview 2">
+              <img src="/Content/Modul10-3.jpg" alt="Modul 10 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 10: Seri Waktu</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 11 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#84fab0,#8fd3f4);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul11-1.jpg" alt="Modul 11 Preview 1">
+              <img src="/Content/Modul11-2.jpg" alt="Modul 11 Preview 2">
+              <img src="/Content/Modul11-3.jpg" alt="Modul 11 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 11: Seri Tubuh</h5>
+          <p>100 halaman</p>
+        </div>
+      </div>
+
+      <!-- Modul 12 -->
+      <div class="col">
+        <div class="card h-100 text-center p-3" style="background:linear-gradient(135deg,#fccb90,#d57eeb);">
+          <div class="mod-slideshow">
+            <div class="slides">
+              <img src="/Content/Modul12-1.jpg" alt="Modul 12 Preview 1">
+              <img src="/Content/Modul12-2.jpg" alt="Modul 12 Preview 2">
+              <img src="/Content/Modul12-3.jpg" alt="Modul 12 Preview 3">
+            </div>
+          </div>
+          <h5 class="card-title">Modul 12: Seri Dinosaurus</h5>
+          <p>150 halaman</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Harga & Paket (Revisi: Kotak Netral, Background Asli Tetap) -->
+<section class="py-5" id="harga">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4 text-dark">Harga Worksheet</h2>
+    <div class="row justify-content-center g-3">
+      
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0" style="background-color: #ffffff;">
+          <div class="card-body">
+            <h5 class="fw-semibold text-dark">1 Modul</h5>
+            <p class="fs-5 fw-bold text-secondary">Rp35.000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0" style="background-color: #ffffff;">
+          <div class="card-body">
+            <h5 class="fw-semibold text-dark">2 Modul</h5>
+            <p class="fs-5 fw-bold text-secondary">Rp70.000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0" style="background-color: #ffffff;">
+          <div class="card-body">
+            <h5 class="fw-semibold text-dark">3 Modul</h5>
+            <p class="fs-5 fw-bold text-success">Rp90.000 (Hemat)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0" style="background-color: #ffffff;">
+          <div class="card-body">
+            <h5 class="fw-semibold text-dark">4 Modul</h5>
+            <p class="fs-5 fw-bold text-secondary">Rp125.000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0" style="background-color: #ffffff;">
+          <div class="card-body">
+            <h5 class="fw-semibold text-dark">5 Modul</h5>
+            <p class="fs-5 fw-bold text-secondary">Rp160.000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-sm border-0" style="background-color: #ffffff;">
+          <div class="card-body">
+            <h5 class="fw-semibold text-dark">6 Modul</h5>
+            <p class="fs-5 fw-bold text-success">Rp150.000 (Hemat)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="/Halaman/checkout.html" 
+       class="btn btn-success btn-lg mt-4 shadow-sm px-5 py-2 fw-semibold">
+      Pesan Sekarang
+    </a>
+  </div>
+</section>
+
+<!-- Siapa Cocok -->
+<section class="py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Siapa yang Cocok Membeli?</h2>
+    <p>- Orang tua anak usia 2–8 tahun<br>- Guru TK/PAUD<br>- Pengajar homeschooling<br>- Siapa saja yang peduli perkembangan anak</p>
+  </div>
+</section>
+
+<!-- Urgency -->
+<section class="py-5" id="urgency">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">Mengapa Harus Membeli Sekarang?</h2>
+    <p>Harga promo terbatas, bonus tambahan untuk paket tertentu, dan semakin cepat beli, semakin cepat anak terbebas dari kecanduan HP!</p>
+  </div>
+</section>
+
+<!-- Testimoni -->
+<section class="py-5" id="testimoni-section">
+  <div class="container text-center text-white">
+    <h2 class="fw-bold mb-4">Testimoni</h2>
+    <blockquote class="fs-5 fst-italic">
+      “Anak saya jadi semangat belajar, sudah jarang minta HP lagi. 
+      Terima kasih Kids Worksheet Store!” – <strong>Ibu Dyah, Palembang.</strong>
+    </blockquote>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+  <p>© 2025 Kids Worksheet Store</p>
+  <a href="https://wa.me/6281298516017" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp">
+  </a>
+  <a href="#" data-bs-toggle="modal" data-bs-target="#emailFallbackModal">
+    <img src="https://img.icons8.com/color/48/000000/gmail.png" alt="Email">
+  </a>
+  <br>
+  <a href="#" data-bs-toggle="modal" data-bs-target="#tncModal" class="text-white">Syarat & Ketentuan</a> | 
+  <a href="#" data-bs-toggle="modal" data-bs-target="#refundModal" class="text-white">Kebijakan Refund</a>
+</footer>
+
+<!-- Modal Email Fallback (versi ringkas tanpa form) -->
+<div class="modal fade" id="emailFallbackModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Hubungi Kami via Email</h5>
+      </div>
+      <div class="modal-body text-center">
+        <p>Silahkan kirim pesan ke email:</p>
+        <p class="fw-bold text-primary">cs@kidsworksheet.store</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Syarat & Ketentuan -->
+<div class="modal fade" id="tncModal" tabindex="-1">
+  <div class="modal-dialog modal-lg"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Syarat & Ketentuan</h5></div>
+    <div class="modal-body">
+      <p><strong>1. Produk Digital</strong><br>
+      Produk yang dijual adalah worksheet anak dalam bentuk file digital (PDF). Tidak ada pengiriman fisik (barang).</p>
+      <p><strong>2. Penggunaan Produk</strong><br>
+      File worksheet hanya untuk penggunaan pribadi. Dilarang keras memperbanyak, membagikan, atau mendistribusikan kembali file ke pihak lain tanpa izin tertulis.</p>
+      <p><strong>3. Harga dan Pembayaran</strong><br>
+      Harga tercantum di website sudah termasuk pajak (jika berlaku). Pembayaran dilakukan melalui metode yang tersedia (transfer bank, e-wallet, QRIS, dll) melalui mitra payment gateway kami (Midtrans).</p>
+      <p><strong>4. Proses Pengiriman</strong><br>
+      Setelah pembayaran terkonfirmasi, file worksheet akan otomatis dikirimkan ke alamat email yang didaftarkan pada saat checkout. Pastikan email yang diberikan valid dan dapat diakses.</p>
+      <p><strong>5. Keterbatasan Tanggung Jawab</strong><br>
+      Kids Worksheet Store tidak bertanggung jawab atas kesalahan pengisian email yang menyebabkan file tidak diterima pembeli. Kids Worksheet Store tidak bertanggung jawab atas kerusakan perangkat atau software akibat penggunaan produk.</p>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button></div>
+  </div></div>
+</div>
+
+<!-- Modal Kebijakan Refund -->
+<div class="modal fade" id="refundModal" tabindex="-1">
+  <div class="modal-dialog modal-lg"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Kebijakan Refund</h5></div>
+    <div class="modal-body">
+      <p><strong>1. Produk Tidak Bisa Dikembalikan</strong><br>
+      Karena produk berbentuk digital (PDF), maka setelah file dikirim ke email, tidak ada pengembalian barang maupun refund.</p>
+      <p><strong>2. Pengecualian Refund</strong><br>
+      - Terjadi kegagalan sistem sehingga file tidak terkirim setelah pembayaran sukses.<br>
+      - Pembeli melakukan pembayaran lebih dari satu kali untuk produk yang sama (double payment).</p>
+      <p><strong>3. Proses Refund</strong><br>
+      Permintaan refund harus diajukan melalui email resmi: cs@kidsworksheet.store atau WhatsApp support. Sertakan bukti pembayaran dan deskripsi masalah. Proses refund akan dilakukan maksimal 7 hari kerja setelah klaim disetujui.</p>
+      <p><strong>4. Penggantian Produk</strong><br>
+      Jika ada file rusak atau tidak bisa dibuka, pembeli dapat menghubungi kami untuk mendapatkan file pengganti tanpa biaya tambahan.</p>
+    </div>
+    <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button></div>
+  </div></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const slideshows = document.querySelectorAll('.mod-slideshow');
+  slideshows.forEach(slideshow => {
+    const slidesContainer = slideshow.querySelector('.slides');
+    const images = slidesContainer.querySelectorAll('img');
+    const total = images.length;
+    slidesContainer.style.width = `${total * 100}%`;
+
+    let index = 0;
+    const changeSlide = () => {
+      index = (index + 1) % total;
+      slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+    };
+
+    // Jalankan animasi setelah layout stabil
+    setTimeout(() => setInterval(changeSlide, 3000), 1000);
+
+    // Pastikan tinggi update jika layar di-resize
+    window.addEventListener('resize', () => {
+      slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+    });
+  });
+});
+</script>
+<!-- Tombol Pesan Sekarang Fixed -->
+<a href="/Halaman/checkout.html" id="floatingOrderBtn">
+<i class="fas fa-shopping-cart"></i>🛒 Pesan Sekarang</a>
+
+<style>
+  #floatingOrderBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffcc00;
+  color: #000;
+  font-weight: 700;
+  padding: 14px 50px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: all 0.4s ease;
+
+  /* ✅ Tambahan agar ikon & teks sejajar di tengah */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#floatingOrderBtn:hover {
+  background-color: #ffdb4d;
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  #floatingOrderBtn {
+    width: 90%;
+    bottom: 15px;
+    padding: 12px 0;
+    font-size: 1rem;
+    gap: 6px;
+  }
+}
+
+</style>
+
+<script>
+  // Tombol akan naik/menghilang saat mencapai footer agar tidak menutupi konten
+  window.addEventListener('scroll', function () {
+    const btn = document.getElementById('floatingOrderBtn');
+    const footer = document.querySelector('footer') || document.querySelector('.footer');
+
+    if (footer) {
+      const footerTop = footer.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (footerTop < windowHeight - 80) {
+        btn.style.opacity = '0';
+        btn.style.pointerEvents = 'none';
+        btn.style.transform = 'translateX(-50%) translateY(100px)';
+      } else {
+        btn.style.opacity = '1';
+        btn.style.pointerEvents = 'auto';
+        btn.style.transform = 'translateX(-50%) translateY(0)';
+      }
+    }
+  });
+</script>
+
+<!-- Font Awesome untuk ikon checklist, dll -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

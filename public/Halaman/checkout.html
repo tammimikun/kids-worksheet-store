@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '75425423543524352'); // 👉 ganti dengan ID Pixel kamu
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=75425423543524352&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Worksheet Anak Kreatif</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://app.midtrans.com/snap/snap.js" data-client-key="Mid-client-t3lNql6YkGNU05IK"></script>
+  <style>
+    body {
+      background:
+        radial-gradient(circle, rgba(255,182,193,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(173,216,230,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(144,238,144,0.4) 3px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,153,0.4) 3px, transparent 3px),
+        #ffe5b4;
+      background-size:80px 80px,100px 100px,120px 120px,90px 90px,auto;
+      padding-bottom:130px;
+    }
+    .mod-thumbs{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem;margin-left:1.8rem;}
+    .mod-thumbs img{height:100px;border-radius:.5rem;border:1px solid rgba(0,0,0,0.1);}
+    .form-check{display:flex;align-items:center;gap:8px;margin-bottom:.4rem;}
+    .form-check-label{cursor:pointer;font-weight:500;}
+    .checkout-bar{position:fixed;bottom:0;left:0;right:0;background:#ffe5b4;border-top:2px solid rgba(0,0,0,.1);box-shadow:0 -3px 8px rgba(0,0,0,.15);z-index:2000;padding:12px 0;}
+    .checkout-inner{display:flex;flex-direction:column;align-items:center;gap:.5rem;}
+    .checkout-inner #totalHarga{background-color:#cff4fc;border:1px solid #b6effb;border-radius:.5rem;width:250px;text-align:center;font-weight:600;margin:0 auto;}
+  </style>
+</head>
+<body>
+<div class="container py-5">
+  <h2 class="text-center fw-bold mb-4">Checkout Worksheet Anak Kreatif</h2>
+
+  <form id="checkoutForm">
+    <div class="mb-3">
+      <label class="form-label">Nama Lengkap</label>
+      <input type="text" class="form-control" id="nama" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Nomor WhatsApp</label>
+      <input type="tel" class="form-control" id="whatsapp" required>
+    </div>
+
+    <h4 class="fw-bold mt-4">Pilih Modul</h4>
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" id="selectAll">
+      <label for="selectAll" class="form-check-label fw-semibold text-primary">Pilih Semua Modul</label>
+    </div>
+    
+    <!-- Daftar modul 1–12: dipertahankan apa adanya -->
+     <!-- Modul 1 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 1 Seri Alfabet"
+               data-url="/Modul/Modul%201%20Seri%20Alfabet.pdf" id="m1">
+        <label for="m1" class="form-check-label fw-semibold">Modul 1 Seri Alfabet</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul1-1.jpg" alt="Modul 1 Preview 1" loading="lazy">
+        <img src="/Content/Modul1-2.jpg" alt="Modul 1 Preview 2" loading="lazy">
+        <img src="/Content/Modul1-3.jpg" alt="Modul 1 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 2 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 2 Seri Berhitung"
+               data-url="/Modul/Modul%202%20Seri%20Berhitung.pdf" id="m2">
+        <label for="m2" class="form-check-label fw-semibold">Modul 2 Seri Berhitung</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul2-1.jpg" alt="Modul 2 Preview 1" loading="lazy">
+        <img src="/Content/Modul2-2.jpg" alt="Modul 2 Preview 2" loading="lazy">
+        <img src="/Content/Modul2-3.jpg" alt="Modul 2 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 3 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 3 Seri Benda di Sekitar Kita"
+               data-url="/Modul/Modul%203%20Seri%20Benda%20di%20Sekitar%20Kita.pdf" id="m3">
+        <label for="m3" class="form-check-label fw-semibold">Modul 3 Seri Benda di Sekitar Kita</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul3-1.jpg" alt="Modul 3 Preview 1" loading="lazy">
+        <img src="/Content/Modul3-2.jpg" alt="Modul 3 Preview 2" loading="lazy">
+        <img src="/Content/Modul3-3.jpg" alt="Modul 3 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 4 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 4 Seri Hewan"
+               data-url="/Modul/Modul%204%20Seri%20Hewan.pdf" id="m4">
+        <label for="m4" class="form-check-label fw-semibold">Modul 4 Seri Hewan</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul4-1.jpg" alt="Modul 4 Preview 1" loading="lazy">
+        <img src="/Content/Modul4-2.jpg" alt="Modul 4 Preview 2" loading="lazy">
+        <img src="/Content/Modul4-3.jpg" alt="Modul 4 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 5 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 5 Seri Buah-buahan"
+               data-url="/Modul/Modul%205%20Seri%20Buah-buahan.pdf" id="m5">
+        <label for="m5" class="form-check-label fw-semibold">Modul 5 Seri Buah-buahan</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul5-1.jpg" alt="Modul 5 Preview 1" loading="lazy">
+        <img src="/Content/Modul5-2.jpg" alt="Modul 5 Preview 2" loading="lazy">
+        <img src="/Content/Modul5-3.jpg" alt="Modul 5 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 6 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 6 Seri Sayur-sayuran"
+               data-url="/Modul/Modul%206%20Seri%20Sayur-sayuran.pdf" id="m6">
+        <label for="m6" class="form-check-label fw-semibold">Modul 6 Seri Sayur-sayuran</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul6-1.jpg" alt="Modul 6 Preview 1" loading="lazy">
+        <img src="/Content/Modul6-2.jpg" alt="Modul 6 Preview 2" loading="lazy">
+        <img src="/Content/Modul6-3.jpg" alt="Modul 6 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 7 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 7 Seri Profesi"
+               data-url="/Modul/Modul%207%20Seri%20Profesi.pdf" id="m7">
+        <label for="m7" class="form-check-label fw-semibold">Modul 7 Seri Profesi</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul7-1.jpg" alt="Modul 7 Preview 1" loading="lazy">
+        <img src="/Content/Modul7-2.jpg" alt="Modul 7 Preview 2" loading="lazy">
+        <img src="/Content/Modul7-3.jpg" alt="Modul 7 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 8 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 8 Seri Kendaraan"
+               data-url="/Modul/Modul%208%20Seri%20Kendaraan.pdf" id="m8">
+        <label for="m8" class="form-check-label fw-semibold">Modul 8 Seri Kendaraan</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul8-1.jpg" alt="Modul 8 Preview 1" loading="lazy">
+        <img src="/Content/Modul8-2.jpg" alt="Modul 8 Preview 2" loading="lazy">
+        <img src="/Content/Modul8-3.jpg" alt="Modul 8 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 9 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 9 Seri Mengenal Tempat"
+               data-url="/Modul/Modul%209%20Seri%20Mengenal%20Tempat.pdf" id="m9">
+        <label for="m9" class="form-check-label fw-semibold">Modul 9 Seri Mengenal Tempat</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul9-1.jpg" alt="Modul 9 Preview 1" loading="lazy">
+        <img src="/Content/Modul9-2.jpg" alt="Modul 9 Preview 2" loading="lazy">
+        <img src="/Content/Modul9-3.jpg" alt="Modul 9 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 10 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 10 Seri Mengenal Waktu"
+               data-url="/Modul/Modul%2010%20Seri%20Mengenal%20Waktu.pdf" id="m10">
+        <label for="m10" class="form-check-label fw-semibold">Modul 10 Seri Mengenal Waktu</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul10-1.jpg" alt="Modul 10 Preview 1" loading="lazy">
+        <img src="/Content/Modul10-2.jpg" alt="Modul 10 Preview 2" loading="lazy">
+        <img src="/Content/Modul10-3.jpg" alt="Modul 10 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 11 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 11 Seri Mengenal Anggota Tubuh"
+               data-url="/Modul/Modul%2011%20Seri%20Mengenal%20Anggota%20Tubuh.pdf" id="m11">
+        <label for="m11" class="form-check-label fw-semibold">Modul 11 Seri Mengenal Anggota Tubuh</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul11-1.jpg" alt="Modul 11 Preview 1" loading="lazy">
+        <img src="/Content/Modul11-2.jpg" alt="Modul 11 Preview 2" loading="lazy">
+        <img src="/Content/Modul11-3.jpg" alt="Modul 11 Preview 3" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Modul 12 -->
+    <div class="col mb-4">
+      <div class="form-check d-flex align-items-center gap-2 mb-2">
+        <input type="checkbox" name="modul[]" class="form-check-input modul"
+               value="Modul 12 Seri Dinosaurus"
+               data-url="/Modul/Modul%2012%20Seri%20Dinosaurus.pdf" id="m12">
+        <label for="m12" class="form-check-label fw-semibold">Modul 12 Seri Dinosaurus</label>
+      </div>
+      <div class="mod-thumbs">
+        <img src="/Content/Modul12-1.jpg" alt="Modul 12 Preview 1" loading="lazy">
+        <img src="/Content/Modul12-2.jpg" alt="Modul 12 Preview 2" loading="lazy">
+        <img src="/Content/Modul12-3.jpg" alt="Modul 12 Preview 3" loading="lazy">
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="checkout-bar">
+  <div class="checkout-inner">
+    <div id="totalHarga">Total: Rp0</div>
+
+    <!-- Tombol Lanjutkan Pembayaran -->
+    <button 
+      type="submit" 
+      form="checkoutForm" 
+      class="btn btn-success btn-lg shadow-sm px-5"
+      onclick="trackCheckoutStart()">
+      Lanjutkan Pembayaran
+    </button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+const hargaPerModul = 5000;
+const totalEl = document.getElementById('totalHarga');
+const selectAll = document.getElementById('selectAll');
+
+function hitungHarga(jumlah){
+  const daftar={1:5000,2:10000,3:15000,4:20000,5:25000,6:30000,7:35000,8:40000,9:45000,10:50000,11:55000,12:60000};
+  return daftar[jumlah] ?? (jumlah * hargaPerModul);
+}
+function updateTotal(){
+  const j = document.querySelectorAll('.modul:checked').length;
+  totalEl.textContent = "Total: Rp" + hitungHarga(j).toLocaleString("id-ID");
+}
+
+selectAll.addEventListener("change", function(){
+  document.querySelectorAll(".modul").forEach(cb => cb.checked = this.checked);
+  updateTotal();
+});
+document.addEventListener("change", e=>{
+  if(!e.target.classList.contains("modul")) return;
+  const semua = document.querySelectorAll(".modul").length;
+  const dipilih = document.querySelectorAll(".modul:checked").length;
+  selectAll.checked = (semua === dipilih);
+  updateTotal();
+});
+
+function emailValid(e){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
+function phoneValid(p){return /^[0-9+ ]{8,15}$/.test(p);}
+
+async function ensureSnapReady(){
+  if (window.snap && typeof window.snap.pay === "function") return true;
+  await new Promise((resolve,reject)=>{
+    const s = document.createElement("script");
+    s.src = "https://app.midtrans.com/snap/snap.js";
+    const exist = document.querySelector('script[src*=\"midtrans.com/snap\"]');
+    if (exist?.dataset?.clientKey) s.dataset.clientKey = exist.dataset.clientKey;
+    s.onload = resolve; s.onerror = reject;
+    document.head.appendChild(s);
+  });
+  return (window.snap && typeof window.snap.pay === "function");
+}
+
+document.getElementById("checkoutForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+
+  // ✅ Tambahkan tracking Pixel untuk keamanan (tidak menghapus logika lama)
+  try {
+    if (typeof fbq !== "undefined") {
+      fbq('track', 'InitiateCheckout');
+      console.log("🟢 [META PIXEL] Event InitiateCheckout dikirim otomatis saat submit.");
+    }
+  } catch (e) {
+    console.warn("⚠️ [META PIXEL] fbq belum siap:", e);
+  }
+
+  const nama = document.getElementById('nama').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  if(!emailValid(email)){alert("Format email tidak valid.");return;}
+  if(!phoneValid(whatsapp)){alert("Nomor WhatsApp tidak valid.");return;}
+
+  const checked = [...document.querySelectorAll('.modul:checked')];
+  if(checked.length===0){alert("Silakan pilih minimal 1 modul.");return;}
+
+  const modulDipilih = checked.map(cb => ({ nama: cb.value, url: cb.dataset.url }));
+  const total = hitungHarga(modulDipilih.length);
+
+  localStorage.setItem("nama", nama);
+  localStorage.setItem("email", email);
+  localStorage.setItem("whatsapp", whatsapp);
+  localStorage.setItem("modulDipilih", JSON.stringify(modulDipilih));
+  localStorage.setItem("total", total);
+
+  try{
+    const orderId = "KWS-" + Date.now(); // ✅ wajib ada order_id
+
+    const payload = {
+      transaction_details: { 
+        order_id: orderId,
+        gross_amount: total 
+      },
+      customer_details: { first_name: nama, email: email, phone: whatsapp },
+      item_details: modulDipilih.map((m, i) => ({
+        id: `MOD-${i + 1}`,
+        price: Math.floor(total / modulDipilih.length),
+        quantity: 1,
+        name: m.nama.replace(/[:]/g, "").trim()
+      })),
+      modulDipilih: modulDipilih,
+      custom_field1: JSON.stringify({
+        nama: nama,
+        email: email,
+        jumlah_modul: modulDipilih.length
+      })
+    };
+
+    let sum = payload.item_details.reduce((s, it) => s + it.price * it.quantity, 0);
+    if (sum !== total) {
+      payload.item_details[payload.item_details.length - 1].price += (total - sum);
+    }
+
+    console.log("📤 [CHECKOUT] POST payload:", payload);
+
+    let resp = await fetch("https://midtranshandler-smbjamnkmq-et.a.run.app/create-transaction", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if(!resp.ok){ alert("Terjadi kesalahan saat membuat transaksi."); return; }
+    const data = await resp.json();
+    if(data?.token){
+      const snapReady = await ensureSnapReady();
+      if(!snapReady){alert("Komponen pembayaran gagal dimuat.");return;}
+      
+      // ✅ Sinkronisasi tambahan: kirim Pixel event dengan nilai transaksi
+      try {
+        if (typeof fbq !== "undefined") {
+          fbq('track', 'InitiateCheckout', { value: total, currency: 'IDR' });
+          console.log('🟢 [META PIXEL] InitiateCheckout dengan value dikirim.');
+        }
+      } catch (e) {
+        console.warn('⚠️ [META PIXEL] Gagal kirim event kedua:', e);
+      }
+
+      window.snap.pay(data.token, {
+        onSuccess: (r)=>window.location.href=`https://kidsworksheet.store/Halaman/konfirmasi.html?order_id=${encodeURIComponent(r.order_id)}&status=success`,
+        onPending: (r)=>window.location.href=`https://kidsworksheet.store/Halaman/konfirmasi.html?order_id=${encodeURIComponent(r.order_id)}&status=pending`,
+        onError:(r)=>{console.error("❌ Payment error:",r);alert("Kesalahan saat pembayaran.");},
+        onClose:()=>console.log("ℹ️ Popup ditutup.")
+      });
+    } else {
+      alert("Token pembayaran tidak ditemukan.");
+    }
+  }catch(err){
+    console.error("❌ Exception:", err);
+    alert("Terjadi kesalahan saat membuat transaksi.");
+  }
+});
+
+// === Potongan lama dipertahankan sepenuhnya ===
+function trackCheckoutStart() {
+  try {
+    if (typeof fbq !== "undefined") {
+      fbq('track', 'InitiateCheckout');
+      console.log('🟢 [META PIXEL] Event InitiateCheckout dikirim (manual click).');
+    }
+  } catch (e) {
+    console.warn('⚠️ [META PIXEL] fbq belum tersedia atau error:', e);
+  }
+}
+</script>
+</body>
+</html>
+
