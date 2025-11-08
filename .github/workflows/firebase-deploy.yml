@@ -1,28 +1,16 @@
-name: Firebase Auto Deploy (Service Account Fix)
+name: Firebase Auto Deploy (Service Account)
 
 on:
   push:
     branches:
       - main
-    paths-ignore:
-      - '**.md'
-      - '**.txt'
-      - '**.png'
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.gif'
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
-    env:
-      PROJECT_ID: kids-worksheet-store
-      GCP_KEY_FILE: ${{ runner.temp }}/gcp-key.json
-      GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcp-key.json
-
     steps:
-      - name: 🔹 Checkout repository
+      - name: 🔹 Checkout code
         uses: actions/checkout@v4
 
       - name: 🔧 Setup Node.js
@@ -33,23 +21,14 @@ jobs:
       - name: 📦 Install Firebase CLI
         run: npm install -g firebase-tools
 
-      - name: 🔑 Write service account key to file
+      - name: 🔑 Setup Service Account
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
         run: |
-          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}" > $GCP_KEY_FILE
+          echo "$FIREBASE_SERVICE_ACCOUNT" > $HOME/firebase-key.json
+          export GOOGLE_APPLICATION_CREDENTIALS="$HOME/firebase-key.json"
 
-      - name: 📂 Install Functions dependencies
-        run: |
-          cd functions
-          npm ci
-          cd ..
-
-      - name: 🧪 Run lint check (optional)
-        run: |
-          cd functions
-          npm run lint || echo "Lint warnings ignored"
-          cd ..
-
-      - name: 🚀 Deploy to Firebase (Hosting + Functions)
-        run: |
-          firebase use $PROJECT_ID --token "$(cat $GCP_KEY_FILE)" || true
-          firebase deploy --only hosting,functions --non-interactive --project $PROJECT_ID
+      - name: 🚀 Deploy to Firebase
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: $HOME/firebase-key.json
+        run: firebase deploy --only hosting,functions --project kids-worksheet-store --non-interactive
