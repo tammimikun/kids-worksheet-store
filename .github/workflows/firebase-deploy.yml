@@ -15,6 +15,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_APPLICATION_CREDENTIALS: /home/runner/work/_temp/gcp-key.json
 
     steps:
       - name: 🔹 Checkout repository
@@ -30,8 +32,8 @@ jobs:
 
       - name: 🔑 Decode and Save Service Account JSON
         run: |
-          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}" > $HOME/gcp-key.json
-        shell: bash
+          echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}" > $GOOGLE_APPLICATION_CREDENTIALS
+          echo "✅ Service account key saved to $GOOGLE_APPLICATION_CREDENTIALS"
 
       - name: 📂 Install Functions dependencies
         run: |
@@ -46,7 +48,5 @@ jobs:
           cd ..
 
       - name: 🚀 Deploy to Firebase (Hosting + Functions)
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: $HOME/gcp-key.json
         run: |
           firebase deploy --only hosting,functions --non-interactive --project kids-worksheet-store
