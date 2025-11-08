@@ -1,4 +1,4 @@
-name: Firebase Auto Deploy (Production Stable)
+name: Firebase Auto Deploy (Stable Production)
 
 on:
   push:
@@ -27,6 +27,12 @@ jobs:
 
       - name: 📦 Install Firebase CLI
         run: npm install -g firebase-tools
+
+      - name: ⚙️ Install Functions Dependencies
+        run: |
+          cd functions
+          npm ci
+          cd ..
 
       - name: 🔑 Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
