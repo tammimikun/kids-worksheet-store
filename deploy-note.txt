@@ -1,3 +1,4 @@
 # Trigger deploy
 trigger deploy
 trigger deploy
+trigger deploy test
