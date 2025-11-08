@@ -14,7 +14,6 @@ on:
 
 jobs:
   build-and-deploy:
-    if: contains(github.event.head_commit.message, 'deploy')
     runs-on: ubuntu-latest
 
     steps:
@@ -30,25 +29,17 @@ jobs:
         run: |
           cd functions
           npm ci
+          cd ..
 
       - name: 🧪 Run lint check
         run: |
           cd functions
           npm run lint || echo "Lint warnings ignored"
-
-      - name: 🧱 Test build (Firebase functions dry run)
-        run: |
-          cd functions
-          npx firebase-tools functions:lint || echo "Lint passed"
           cd ..
 
-      - name: 🔑 Authenticate with Google Cloud
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
-
-      - name: 🚀 Deploy to Firebase (Hosting + Functions)
-        uses: w9jds/firebase-action@v13
+      - name: 🚀 Deploy to Firebase (via Service Account)
+        uses: w9jds/firebase-action@v2.2.2
         with:
           args: deploy --only hosting,functions
+        env:
+          GCP_SA_KEY: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
