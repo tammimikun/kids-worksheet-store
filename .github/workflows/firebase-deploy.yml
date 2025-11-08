@@ -30,8 +30,8 @@ jobs:
 
       - name: 🔑 Decode and Save Service Account JSON
         run: |
-          echo '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}' > $HOME/firebase-key.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$HOME/firebase-key.json" >> $GITHUB_ENV
+          echo '${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}' > ${HOME}/gcp-key.json
+        shell: bash
 
       - name: 📂 Install Functions dependencies
         run: |
@@ -46,4 +46,7 @@ jobs:
           cd ..
 
       - name: 🚀 Deploy to Firebase (Hosting + Functions)
-        run: firebase deploy --only hosting,functions --non-interactive --project kids-worksheet-store
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ HOME }}/gcp-key.json
+        run: |
+          firebase deploy --only hosting,functions --non-interactive --project kids-worksheet-store
